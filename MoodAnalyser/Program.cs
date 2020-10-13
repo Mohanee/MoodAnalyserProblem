@@ -8,4 +8,5 @@ namespace MoodAnalyser
         {
             Console.WriteLine("Hello Welcome to Mood Analyser Problem");
         }
+    }
 }
