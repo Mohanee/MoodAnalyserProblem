@@ -10,17 +10,30 @@ namespace MoodAnalyser
             Console.WriteLine("Hello Welcome to Mood Analyser Problem");
             Console.WriteLine("What is your mood??");
             string message = Console.ReadLine();
-            MoodAnalyserClass ma = new MoodAnalyserClass();
-            ma.CheckMood(message);
+            MoodAnalyserClass ma = new MoodAnalyserClass(message);
+            ma.CheckMood();
              
         }
     }
 
     public class MoodAnalyserClass
     {
-        public string CheckMood(string message)
+        public string message { get; set; }
+
+        public MoodAnalyserClass(string message)
         {
-            string msg = message.ToLower();
+            this.message = message.ToLower();
+        }
+
+        public MoodAnalyserClass()
+        {
+            message = message.ToLower();
+            if (message == "i am in sad mood") ;
+        }
+
+        public string CheckMood()
+        {
+            string msg = this.message;
 
             if(msg == "i am in sad mood")
             {
