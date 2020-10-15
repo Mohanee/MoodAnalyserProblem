@@ -27,21 +27,26 @@ namespace MoodAnalyser
 
         public MoodAnalyserClass()
         {
-            message = message.ToLower();
-            if (message == "i am in sad mood") ;
         }
 
         public string CheckMood()
         {
             string msg = this.message;
 
-            if(msg == "i am in sad mood")
+            try
             {
-                return ("SAD");
+                if (msg == "i am in sad mood")
+                {
+                    return ("SAD");
+                }
+                else
+                {
+                    return ("HAPPY");
+                }
             }
-            else 
+            catch(NullReferenceException)
             {
-                return("HAPPY");
+                return "HAPPY";
             }
         }
     }
