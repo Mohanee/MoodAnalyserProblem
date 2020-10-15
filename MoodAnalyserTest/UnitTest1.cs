@@ -35,5 +35,14 @@ namespace MoodAnalyserTest
 
             Assert.AreEqual(result, "SAD");
         }
+
+        [TestMethod]
+        public void IamAnyMood_Returns_HAPPY_usingCtor()
+        {
+            MoodAnalyserClass ma = new MoodAnalyser.MoodAnalyserClass("I am in any mood");
+            string result = ma.CheckMood();
+
+            Assert.AreEqual(result, "HAPPY");
+        }
     }
 }
