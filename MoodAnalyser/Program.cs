@@ -22,7 +22,7 @@ namespace MoodAnalyser
 
         public MoodAnalyserClass(string message)
         {
-            this.message = message.ToLower();
+            this.message = message;
         }
 
         public MoodAnalyserClass()
@@ -35,6 +35,7 @@ namespace MoodAnalyser
 
             try
             {
+                msg = message.ToLower();
                 if (msg == "i am in sad mood")
                 {
                     return ("SAD");
