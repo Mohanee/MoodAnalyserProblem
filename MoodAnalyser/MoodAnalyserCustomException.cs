@@ -4,11 +4,11 @@ using System.Text;
 
 namespace MoodAnalyser
 {
-    class MoodAnalyserCustomException :Exception
+    public class MoodAnalyserCustomException :Exception
     { 
             public enum ExceptionType
             {
-                ENTERED_NULL, ENTERED_INVALID_MOOD
+                ENTERED_NULL, ENTERED_EMPTY_MOOD
             }
 
             ExceptionType type;

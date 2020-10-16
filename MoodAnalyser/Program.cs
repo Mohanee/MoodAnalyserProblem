@@ -37,7 +37,7 @@ namespace MoodAnalyser
             {
                 if(this.message.Equals(string.Empty))
                 {
-                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_INVALID_MOOD, "Mood should be valid");
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_EMPTY_MOOD, "Mood should not be Empty");
                 }
 
                 msg = message.ToLower();
