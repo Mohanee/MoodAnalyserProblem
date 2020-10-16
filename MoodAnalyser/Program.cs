@@ -35,6 +35,11 @@ namespace MoodAnalyser
 
             try
             {
+                if(this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_INVALID_MOOD, "Mood should be valid");
+                }
+
                 msg = message.ToLower();
                 if (msg == "i am in sad mood")
                 {
@@ -47,7 +52,7 @@ namespace MoodAnalyser
             }
             catch(NullReferenceException)
             {
-                return "HAPPY";
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_NULL, "Mood should not be Null");
             }
         }
     }
