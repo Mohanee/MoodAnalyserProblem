@@ -18,7 +18,7 @@ namespace MoodAnalyser
         {
             string name = ".*" + constructorName + "$";
             bool result = Regex.IsMatch(className, name);
-            if(result)
+            if (result)
             {
                 try
                 {
@@ -27,7 +27,7 @@ namespace MoodAnalyser
                     return Activator.CreateInstance(moodAnalyseType);
                 }
 
-                catch(ArgumentNullException)
+                catch (ArgumentNullException)
                 {
                     throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.CLASS_NOT_FOUND, "No such class found");
                 }
@@ -35,6 +35,29 @@ namespace MoodAnalyser
             else
             {
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.METHOD_NOT_FOUND, "No such method found");
+            }
+        }
+
+        public static object CreateMoodAnalyserUsingParameterisedConstructor(string className, string constructorName, string message)
+
+        {
+            Type type = typeof(MoodAnalyserClass)
+            if (type.Name.Equals(className) || type.FullName.Equals(className))
+            {
+                if (type.Name.Equals(constructorName))
+                {
+                    ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
+                    object instance = ctor.Invoke(new object[] { message });
+                    return instance;
+                }
+                else
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.METHOD_NOT_FOUND, "Constructor is not found");
+                }
+            }
+            else
+            {
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.CLASS_NOT_FOUND, "Class not found");
             }
         }
     }
