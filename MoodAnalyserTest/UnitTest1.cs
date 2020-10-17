@@ -202,7 +202,7 @@ namespace MoodAnalyserTest
             }
             catch (MoodAnalyserCustomException e)
             {
-                Assert.AreEqual("Mood should not be null", e.Message);
+                Assert.AreEqual("Mood should not be NULL", e.Message);
             }
         }
 
