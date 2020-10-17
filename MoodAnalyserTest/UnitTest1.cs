@@ -176,9 +176,23 @@ namespace MoodAnalyserTest
         [TestMethod]
         public void HapppyMessage_To_Reflector_Returns_HAPPYMood()
         {
-            string actual = MoodAnalyserReflector.SetField("Happy", "message");
-            Assert.AreEqual("Happy", actual);
+            string actual = MoodAnalyserReflector.SetField("HAPPY", "message");
+            Assert.AreEqual("HAPPY", actual);
         }
+
+        [TestMethod]
+        public void ImproperField_Throws_MoodAnalyserCustomException()
+        {
+            try
+            {
+                string result = MoodAnalyserReflector.SetField("Happy", "msg");
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("Field is not found", e.Message);
+            }
+        }
+
 
 
 
