@@ -82,17 +82,32 @@ namespace MoodAnalyserTest
         }
 
         [TestMethod]
-        public void Given_ImproperClassName_Should_Throw_MoodAnalysisException_NO_SUCH_CLASS()
+        public void Given_ImproperClassName_Should_Throw_MoodAnalysisException_CLASS_NOT_FOUND()
         {
             try
             {
                 object expected = new MoodAnalyserClass();
-                object actual = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalserProject", "MoodAnalyserProject123");
+                object actual = MoodAnalyserFactory.CreateMoodAnalyser("abc", "pqrmethod");
             }
             catch (MoodAnalyserCustomException e)
             {
                 Assert.AreEqual("No such class found", e.Message);
             }
         }
+
+        [TestMethod]
+        public void Given_ImproperConstructorName_Should_Throw_MoodAnalysisException_NO_SUCH_METHOD()
+        {
+            try
+            {
+                object expected = new MoodAnalyserClass();
+                object actual = MoodAnalyserFactory.CreateMoodAnalyser("Mood", "MoodAnalyserClass");
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("No such method found", e.Message);
+            }
+        }
+
     }
 }
