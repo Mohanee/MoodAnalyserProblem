@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace MoodAnalyser
 {
-    class MoodAnalyserFactory
+    public class MoodAnalyserFactory
     {
         private string message { get; set; }
         public MoodAnalyserFactory(string message)
@@ -16,7 +16,7 @@ namespace MoodAnalyser
 
         public static object CreateMoodAnalyser(string className, string constructorName)
         {
-            string name = @".*" + constructorName + "$";
+            string name = ".*" + constructorName + "$";
             bool result = Regex.IsMatch(className, name);
             if(result)
             {
