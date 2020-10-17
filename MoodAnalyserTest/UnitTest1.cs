@@ -160,6 +160,19 @@ namespace MoodAnalyserTest
             Assert.AreEqual("HAPPY", actual);
         }
 
+        [TestMethod]
+        public void HappyMessage_Returns_ImproperMethodException_When_ImproperMethodCalled()
+        {
+            try
+            {
+                string result = MoodAnalyserReflector.InvokeAnalyseMood("Happy", "Check");
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("No such method found", e.Message);
+            }
+        }
+
 
     }
 }
