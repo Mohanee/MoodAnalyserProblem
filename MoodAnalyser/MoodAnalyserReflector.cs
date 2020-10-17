@@ -43,7 +43,6 @@ namespace MoodAnalyser
             catch (NullReferenceException)
             {
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.FIELD_NOT_FOUND, "Field is not found");
-
             }
         }
     }

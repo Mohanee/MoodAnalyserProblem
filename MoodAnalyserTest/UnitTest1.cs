@@ -173,6 +173,14 @@ namespace MoodAnalyserTest
             }
         }
 
+        [TestMethod]
+        public void HapppyMessage_To_Reflector_Returns_HAPPYMood()
+        {
+            string actual = MoodAnalyserReflector.SetField("Happy", "message");
+            Assert.AreEqual("Happy", actual);
+        }
+
+
 
     }
 }
