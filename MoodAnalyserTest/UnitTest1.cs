@@ -145,7 +145,13 @@ namespace MoodAnalyserTest
             }
         }
 
-
+        [TestMethod]
+        public void GivenMoodAnalyserWithoutMessage_WhenAnalysed_UsingParameterizedConstructor_ShouldReturnMoodAnalyserObject()
+        {
+            object expected = new MoodAnalyserClass();
+            object actual = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterisedConstructor("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClass");
+            Assert.AreEqual(expected.GetType(), actual.GetType());
+        }
 
     }
 }

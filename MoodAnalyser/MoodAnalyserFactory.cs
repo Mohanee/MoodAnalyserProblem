@@ -38,7 +38,7 @@ namespace MoodAnalyser
             }
         }
 
-        public static object CreateMoodAnalyserUsingParameterisedConstructor(string className, string constructorName, string message)
+        public static object CreateMoodAnalyserUsingParameterisedConstructor(string className, string constructorName, string message = "")
 
         {
             Type type = typeof(MoodAnalyserClass);
