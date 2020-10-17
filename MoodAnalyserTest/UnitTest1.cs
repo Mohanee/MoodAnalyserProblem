@@ -185,7 +185,7 @@ namespace MoodAnalyserTest
         {
             try
             {
-                string result = MoodAnalyserReflector.SetField("Happy", "msg");
+                string actual = MoodAnalyserReflector.SetField("Happy", "msg");
             }
             catch (MoodAnalyserCustomException e)
             {
@@ -193,6 +193,18 @@ namespace MoodAnalyserTest
             }
         }
 
+        [TestMethod]
+        public void GivenNullMessage_ShouldThrowMoodAnalyserCustomException()
+        {
+            try
+            {
+                string actual = MoodAnalyserReflector.SetField(null, "message");
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("Mood should not be null", e.Message);
+            }
+        }
 
 
 
