@@ -87,7 +87,7 @@ namespace MoodAnalyserTest
             try
             {
                 object expected = new MoodAnalyserClass();
-                object actual = MoodAnalyserFactory.CreateMoodAnalyser("abc", "pqrmethod ");
+                object actual = MoodAnalyserFactory.CreateMoodAnalyser("abc", "pqrmethod");
             }
             catch (MoodAnalyserCustomException e)
             {
@@ -130,7 +130,21 @@ namespace MoodAnalyserTest
                 Assert.AreEqual("Class not found", e.Message);
             }
         }
-    
+
+        [TestMethod]
+        public void GivenImproperConstructorName_WhenAnalyse_UsingParameterisedConstructor_ShouldThrowMoodAnalysisException()
+        {
+            try
+            {
+                object expected = new MoodAnalyserClass();
+                object actual = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterisedConstructor("MoodAnalyser.MoodAnalyserClass", "Mood", "Happy");
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("Constructor is not found", e.Message);
+            }
+        }
+
 
 
     }
