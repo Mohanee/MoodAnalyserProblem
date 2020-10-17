@@ -60,5 +60,6 @@ namespace MoodAnalyser
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.CLASS_NOT_FOUND, "Class not found");
             }
         }
+
     }
 }

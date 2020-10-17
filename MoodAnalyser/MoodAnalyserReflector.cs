@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace MoodAnalyser
 {
-    class MoodAnalyserReflector
+    public class MoodAnalyserReflector
     {
         public static string InvokeAnalyseMood(string message, string methodName)
         {

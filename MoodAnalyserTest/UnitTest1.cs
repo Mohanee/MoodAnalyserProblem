@@ -153,5 +153,13 @@ namespace MoodAnalyserTest
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
 
+        [TestMethod]
+        public void HappyMessage_Returns_Happy()
+        {
+            string actual = MoodAnalyserReflector.InvokeAnalyseMood("Happy", "CheckMood");
+            Assert.AreEqual("HAPPY", actual);
+        }
+
+
     }
 }
