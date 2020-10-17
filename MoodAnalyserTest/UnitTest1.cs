@@ -113,9 +113,24 @@ namespace MoodAnalyserTest
         public void Given_MoodAnalyserClassName_Should_ReturnMoodAnalyserObject_UsingParameters()
         {
             object expected = new MoodAnalyserClass("HAPPY");
-            object actual = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterisedConstructor("MoodAnalyserClass.MoodAnalyserClass", "MoodAnalyserClass", "HAPPY");
+            object actual = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterisedConstructor("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClass", "HAPPY");
             actual.Equals(expected);
         }
+
+        [TestMethod]
+        public void GivenImproperClassName_WhenAnalyse_UsingParameterisedConstructor_ShouldThrowMoodAnalysisException()
+        {
+            try
+            {
+                object expected = new MoodAnalyserClass();
+                object actual = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterisedConstructor("Mood", "MoodAnalyserClass", "HAPPY");
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("Class not found", e.Message);
+            }
+        }
+    
 
 
     }
