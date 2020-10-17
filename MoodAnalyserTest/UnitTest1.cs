@@ -87,7 +87,7 @@ namespace MoodAnalyserTest
             try
             {
                 object expected = new MoodAnalyserClass();
-                object actual = MoodAnalyserFactory.CreateMoodAnalyser("abc", "pqrmethod");
+                object actual = MoodAnalyserFactory.CreateMoodAnalyser("abc", "pqrmethod ");
             }
             catch (MoodAnalyserCustomException e)
             {
@@ -108,6 +108,15 @@ namespace MoodAnalyserTest
                 Assert.AreEqual("No such method found", e.Message);
             }
         }
+
+        [TestMethod]
+        public void Given_MoodAnalyserClassName_Should_ReturnMoodAnalyserObject_UsingParameters()
+        {
+            object expected = new MoodAnalyserClass("HAPPY");
+            object actual = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterisedConstructor("MoodAnalyserClass.MoodAnalyserClass", "MoodAnalyserClass", "HAPPY");
+            actual.Equals(expected);
+        }
+
 
     }
 }

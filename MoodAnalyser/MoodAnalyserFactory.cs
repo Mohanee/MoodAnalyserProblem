@@ -41,7 +41,7 @@ namespace MoodAnalyser
         public static object CreateMoodAnalyserUsingParameterisedConstructor(string className, string constructorName, string message)
 
         {
-            Type type = typeof(MoodAnalyserClass)
+            Type type = typeof(MoodAnalyserClass);
             if (type.Name.Equals(className) || type.FullName.Equals(className))
             {
                 if (type.Name.Equals(constructorName))
